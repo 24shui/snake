@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏界面</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FAEBD7;
+            /* 米色背景 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .game-container {
+            width: 800px;
+            height: 480px;
+            border: 2px solid #8B4513;
+            /* 深棕色边框 */
+            background-color: #FAEBD7;
+            /* 米色背景 */
+            color: #8B4513;
+            /* 深棕色文字 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+            background-color: rgba(250, 235, 215, 0.8);
+            /* 浅米色背景 */
+        }
+
+        .header button {
+            background-color: #DEB887;
+            /* 金色按钮 */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .header button:hover {
+            background-color: #CD853F;
+            /* 深金色悬停效果 */
+        }
+
+        .status {
+            padding: 10px;
+            background-color: rgba(250, 235, 215, 0.8);
+            /* 浅米色背景 */
+        }
+
+        .game-area {
+            flex: 1;
+            background-color: #FAEBD7;
+            /* 米色背景 */
+            border: 2px solid #8B4513;
+            /* 深棕色边框 */
+            margin: 10px;
+            display: grid;
+            grid-template-columns: repeat(40, 1fr);
+            /* 40列网格 */
+            grid-template-rows: repeat(24, 1fr);
+            /* 24行网格 */
+            gap: 1px;
+            /* 网格间隔 */
+        }
+
+        .game-area div {
+            background-color: #FFF8DC;
+            /* 象牙白色网格背景 */
+            border: 1px solid #DEB887;
+            /* 金色网格边框 */
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+            background-color: rgba(250, 235, 215, 0.8);
+            /* 浅米色背景 */
+        }
+
+        .controls button {
+            background-color: #DEB887;
+            /* 金色按钮 */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .controls button:hover {
+            background-color: #CD853F;
+            /* 深金色悬停效果 */
+        }
+
+        .lives span {
+            background-color: #CD853F;
+            /* 深金色 */
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game-container">
+        <!-- 头部：暂停、退出按钮 -->
+        <div class="header">
+            <button>暂停</button>
+            <button>退出</button>
+        </div>
+
+        <!-- 状态栏：分数、等级、生命值 -->
+        <div class="status">
+            <div>分数：</div>
+            <div>等级：</div>
+
+        </div>
+
+        <!-- 游戏区域 -->
+        <div class="game-area">
+            <!-- 自动生成网格 -->
+            <script>
+                const gameArea = document.querySelector('.game-area');
+                const rows = 24; // 网格行数
+                const cols = 40; // 网格列数
+
+                for (let i = 0; i < rows * cols; i++) {
+                    const cell = document.createElement('div');
+                    gameArea.appendChild(cell);
+                }
+            </script>
+        </div>
+
+        <!-- 控制按钮：加速、减速、重新开始 -->
+        <div class="controls">
+            <button>加速</button>
+            <button>减速</button>
+            <button>重新开始</button>
+        </div>
+    </div>
+</body>
+
+</html>
